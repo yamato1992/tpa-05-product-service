@@ -9,6 +9,7 @@ const getProducts = function() {
 
 const getTotalPrice = function(productIds) {
   return productIds
+    .filter(id => productsById[id])
     .map(id => productsById[id])
     .reduce((total, product) => {
       return total + product.price;

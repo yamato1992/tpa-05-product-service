@@ -1,14 +1,11 @@
 const express = require('express');
+const controller = require('./controller');
 
 const setup = (app) => {
   const apiRouter = express.Router();
 
-  //
-  // TODO
-  //
-  // apiRouter にAPIルートとハンドラーを設定する
-  //
-
+  apiRouter.get('/products', controller.showProducts);
+  apiRouter.get('/price:ids?', controller.calcTotalPrice);
   app.use('/api', apiRouter);
 };
 
